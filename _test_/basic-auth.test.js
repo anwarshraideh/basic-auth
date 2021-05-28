@@ -14,13 +14,29 @@ describe('POST /signup ', () => {
     expect(response.body.username).toEqual('anwar');
     expect(response.status).toEqual(201);
   });
-  it('', async () => {
+  it('POST /signin ', async () => {
     let user = base64.encode(`anwar:123`);
     let response = await request
       .post('/api/v1/signin')
       .set(`Authorization`, `Basic ${user}`);
     expect(response.body.user.username).toEqual('anwar');
     expect(response.status).toEqual(200);
+  });
+});
+
+describe('Need tests for auth middleware and the routes', () => {
+  it('Does the middleware function (send it a basic header)', async () => {
+    let user = base64.encode(`anwar:123`);
+    let response = await request
+      .post('/api/v1/signin')
+      .set(`Authorization`, `Basic ${user}`);
+    expect(response.status).toEqual(200);
+    expect(response.body).toBeTruthy();
+
+  });
+  it('Do the routes assert the requirements (signup/signin)', async () => {
+    let response = await request.post('/');
+    expect(response.status).toBe(404);
   });
 });
   

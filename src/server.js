@@ -6,6 +6,8 @@ const serverError = require('./middleware/500.js');
 const userRouter = require('./auth/router.js');
 const morgan = require('morgan');
 const cors = require('cors');
+const multer = require('multer');
+const multParse = multer();
 
 const app = express();
 
@@ -15,6 +17,7 @@ app.use(express.json());
 app.use('/api/v1', userRouter);
 app.use(morgan('dev'));
 app.use(userRouter);
+app.use(multParse.none());
 
 app.use('*', notFound);
 app.use(serverError);
@@ -31,3 +34,4 @@ module.exports = {
   app: app,
   start: start,
 };
+
