@@ -4,7 +4,7 @@ Author: anwar shraideh
 
 # links
 
-[repoLink](git@github.com:anwarshraideh/basic-auth.git)
+[repoLink](https://github.com/anwarshraideh/basic-auth.git)
 
 [HEROKUE](https://anwar-basic-auth.herokuapp.com/)
 
